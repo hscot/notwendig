@@ -26,18 +26,33 @@ def main():
     while True:
         try:
             print("Clear...")
-            epd.init(0) #Initiates the E-Paper Display; Also wakes up from deep sleep
+            epd.init(epd.FULL_UPDATE) #Initiates the E-Paper Display; Also wakes up from deep sleep
             epd.Clear(0xFF) #Sets the screen to white
-            HBlackimage = Image.new('1', (epd2in13_V2.EPD_HEIGHT, epd2in13_V2.EPD_WIDTH), 255)
+            #HBlackimage = Image.new('1', (epd2in13_V2.EPD_HEIGHT, epd2in13_V2.EPD_WIDTH), 255)
 
             print("Drawing...")
-            drawblack = ImageDraw.Draw(HBlackimage)
+            #drawblack = ImageDraw.Draw(HBlackimage)
             font20 = ImageFont.truetype('fonts/arial.ttf', 20)
-            drawblack.text((10, 0), time.strftime( '%H:%M', time.localtime()), font = font20, fill = 0)
-            drawblack.text((10, 20), "This is a test", font = font20, fill = 0)
-            epd.display(epd.getbuffer(HBlackimage))
-            time.sleep(2)
-            epd.sleep()
+            #drawblack.text((10, 0), time.strftime( '%H:%M', time.localtime()), font = font20, fill = 0)
+            #drawblack.text((10, 20), "This is a test", font = font20, fill = 0)
+            #epd.display(epd.getbuffer(HBlackimage))
+            #time.sleep(2)
+            #epd.sleep()
+
+            ######Test for updating time, but static headlines
+
+            time_image = Image.new('1', (epd.height, epd.width), 255)
+            time_draw = ImageDraw.Draw(time_image)
+
+            epd.inti(epd.FULL_UPDATE)
+            epd.displayPartBaseImage(epd.getbuffer(time_image))
+            epd.init(epd.PART_UPDATE)
+
+            while(True):
+                time_draw.rectangle((120, 80, 220, 105), fill=255)
+                time_draw.text((120, 80), time.strftime('%H:%M'), font = font20, fill = 0)
+                epd.displayPartial(epd.getbuffer(time_image))
+
         except IOError as e:
             print('traceback.format_exec():\n%s', traceback.format_exc())
             epdconfig.module_init()
