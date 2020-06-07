@@ -28,7 +28,7 @@ def main():
             print("Clear...")
             epd.init(epd.FULL_UPDATE) #Initiates the E-Paper Display; Also wakes up from deep sleep
             epd.Clear(0xFF) #Sets the screen to white
-            #HBlackimage = Image.new('1', (epd2in13_V2.EPD_HEIGHT, epd2in13_V2.EPD_WIDTH), 255)
+            HBlackimage = Image.new('1', (epd2in13_V2.EPD_HEIGHT, epd2in13_V2.EPD_WIDTH), 255)
 
             print("Drawing...")
             drawblack = ImageDraw.Draw(HBlackimage)
