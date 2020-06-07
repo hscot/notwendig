@@ -26,15 +26,14 @@ def main():
     while True:
         try:
             print("Clear...")
-            epd.init(FULL_UPDATE) #Initiates the E-Paper Display; Also wakes up from deep sleep
+            epd.init(0) #Initiates the E-Paper Display; Also wakes up from deep sleep
             epd.Clear(0xFF) #Sets the screen to white
             HBlackimage = Image.new('1', (epd2in13_V2.EPD_HEIGHT, epd2in13_V2.EPD_WIDTH), 255)
 
             print("Drawing...")
             drawblack = ImageDraw.Draw(HBlackimage)
             font20 = ImageFont.truetype('fonts/arial.ttf', 20)
-            date = time.localtime()
-            p1, p2 = font20.getsize(date)
+            p1, p2 = font20.getsize(time.strftime())
             drawblack.text((10, 0), time.strftime( '%H:%M', time.localtime()), font = font20, fill = 0)
             drawblack.text((10, 20), "This is a test", font = font20, fill = 0)
             epd.display(epd.getbuffer(HBlackimage))
@@ -48,7 +47,7 @@ def main():
         time.sleep(60)
 
 def ctrl_c_handler(signal, frame):
-    print('goodbye!')
+    print('Control-C Pressed - Exiting!')
     epdconfig.module_init()
     epdconfig.module_exit()
     exit(0)
