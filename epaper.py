@@ -31,13 +31,13 @@ def main():
             #HBlackimage = Image.new('1', (epd2in13_V2.EPD_HEIGHT, epd2in13_V2.EPD_WIDTH), 255)
 
             print("Drawing...")
-            #drawblack = ImageDraw.Draw(HBlackimage)
+            drawblack = ImageDraw.Draw(HBlackimage)
             font20 = ImageFont.truetype('fonts/arial.ttf', 20)
-            #drawblack.text((10, 0), time.strftime( '%H:%M', time.localtime()), font = font20, fill = 0)
-            #drawblack.text((10, 20), "This is a test", font = font20, fill = 0)
-            #epd.display(epd.getbuffer(HBlackimage))
-            #time.sleep(2)
-            #epd.sleep()
+            drawblack.text((10, 0), time.strftime( '%H:%M', time.localtime()), font = font20, fill = 0)
+            drawblack.text((10, 20), "This is a test", font = font20, fill = 0)
+            epd.display(epd.getbuffer(HBlackimage))
+            time.sleep(2)
+            epd.sleep()
 
             ######Test for updating time, but static headlines
 
