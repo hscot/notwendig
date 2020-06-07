@@ -49,7 +49,7 @@ def main():
             epd.init(epd.PART_UPDATE)
 
             while(True):
-                time_draw.rectangle((120, 0, 220, 100), fill=255)
+                time_draw.rectangle((180, 0, 250, 30), fill=255)
                 time_draw.text((180, 0), time.strftime('%H:%M'), font = font20, fill = 0)
                 epd.displayPartial(epd.getbuffer(time_image))
 
