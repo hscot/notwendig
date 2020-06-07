@@ -33,7 +33,6 @@ def main():
             print("Drawing...")
             drawblack = ImageDraw.Draw(HBlackimage)
             font20 = ImageFont.truetype('fonts/arial.ttf', 20)
-            p1, p2 = font20.getsize(time.strftime(time.localtime))
             drawblack.text((10, 0), time.strftime( '%H:%M', time.localtime()), font = font20, fill = 0)
             drawblack.text((10, 20), "This is a test", font = font20, fill = 0)
             epd.display(epd.getbuffer(HBlackimage))
