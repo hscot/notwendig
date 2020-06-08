@@ -13,7 +13,8 @@ from datetime import date
 
 api = NewsApiClient(api_key='0233006c7dc448ffaffea5cdfd337976')
 
-top_headlines = api.get_top_headlines(sources='die-zeit,bbc-news', language='de,en')
+top_headlines = api.get_top_headlines(sources='die-zeit', language='de')
+top_headlines_2 = api.get_top_headlines(sources='bbc-news', language='en')
 
 #Checks if python 3+ is being used, otherwise an exception is thrown
 if sys.version_info[0] < 3:
@@ -24,8 +25,11 @@ if sys.version_info[0] < 3:
 def main():
     y = json.dumps(top_headlines)
     x = json.loads(y)
+    yy = json.dumps(top_headlines_2)
+    xx = json.loads(yy)
     source_name = x['articles'][0]['source']['name']
     source_string = "Sources: " + source_name
+    source_string_2 = "Sources: " + source_name_2
     epd = epd2in13_V2.EPD()
     while True:
         try:
@@ -48,6 +52,7 @@ def main():
             epd.init(epd.PART_UPDATE)
 
             time_draw.text((0, 10), source_string, font = font12, fill = 0)
+            time_draw.text((0, 14), source_string, font = font12, fill = 0)
             while(True):
                 time_draw.rectangle((180, 0, 250, 30), fill=255)
                 time_draw.text((180, 0), time.strftime('%H:%M'), font = font20, fill = 0)
