@@ -42,7 +42,7 @@ def main():
             print("Drawing...")
             drawblack = ImageDraw.Draw(HBlackimage)
             font20 = ImageFont.truetype('fonts/arial.ttf', 20)
-            font12 = ImageFont.truetype('fonts/arial.ttf', 12)
+            font12 = ImageFont.truetype('fonts/arial.ttf', 8)
             
             ######Test for updating time, but static headlines
             time_image = Image.new('1', (epd.height, epd.width), 255)
@@ -55,13 +55,13 @@ def main():
             time_draw.text((0, 10), source_string, font = font12, fill = 0)
             time_draw.text((0, 25), source_string_2, font = font12, fill = 0)
 
-            #Begin displaying the top 5 headlines from each language
+            #Begin displaying the top 3 headlines from each language
             
             articles_de = top_headlines['articles']
             results_de = []
             for ar in articles_de:
                 results_de.append(ar['title'])
-            for i_d in range(0, 5):
+            for i_d in range(0, 3):
                 time_draw.text((0, ((i_d*25))), results_de[i_d], font = font12, fill = 0)
 
             while(True):
