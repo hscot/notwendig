@@ -22,8 +22,10 @@ if sys.version_info[0] < 3:
 #Main function
 
 def main():
-    sources = api.get_sources
-    source_string = "Sources: " + str(sources)
+    y = json.dumps(top_headlines)
+    x = json.loads(y)
+    source_name = x['articles'][0]['source']['name']
+    source_string = "Sources: " + source_name
     epd = epd2in13_V2.EPD()
     while True:
         try:
@@ -45,7 +47,7 @@ def main():
             epd.displayPartBaseImage(epd.getbuffer(time_image))
             epd.init(epd.PART_UPDATE)
 
-            time_draw.text((0, 10), source_string, font = fon12, fill = 0)
+            time_draw.text((0, 10), source_string, font = font12, fill = 0)
             while(True):
                 time_draw.rectangle((180, 0, 250, 30), fill=255)
                 time_draw.text((180, 0), time.strftime('%H:%M'), font = font20, fill = 0)

@@ -4,18 +4,20 @@ import requests
 
 api = NewsApiClient(api_key='0233006c7dc448ffaffea5cdfd337976')
 
-top_headlines = api.get_top_headlines(sources='die-zeit', language='de')
+sources = 'die-zeit'
+top_headlines = api.get_top_headlines(sources=sources, language='de')
 
 #print(json.dumps(top_headlines, indent=4))
 
 #Attempt to retrieve number of articles from JSON data dump
 #For this case, It should be 10
 
-print(top_headlines['totalResults'])
 
+y = json.dumps(top_headlines)
+x = json.loads(y)
+source_name = x['articles'][0]['source']['name']
 
-
-#sources = api.get_sources
+print(source_name)
 
 #print(sources)
 
