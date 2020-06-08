@@ -44,7 +44,7 @@ def main():
             time_image = Image.new('1', (epd.height, epd.width), 255)
             time_draw = ImageDraw.Draw(time_image)
 
-            epd.init(epd.FULL_UPDATE)
+            #epd.init(epd.FULL_UPDATE)
             epd.displayPartBaseImage(epd.getbuffer(time_image))
             epd.init(epd.PART_UPDATE)
 
