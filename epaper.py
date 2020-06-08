@@ -53,7 +53,7 @@ def main():
             epd.init(epd.PART_UPDATE)
 
             time_draw.text((0, 10), source_string, font = font12, fill = 0)
-            time_draw.text((0, 14), source_string, font = font12, fill = 0)
+            time_draw.text((0, 25), source_string_2, font = font12, fill = 0)
             while(True):
                 time_draw.rectangle((180, 0, 250, 30), fill=255)
                 time_draw.text((180, 0), time.strftime('%H:%M'), font = font20, fill = 0)
