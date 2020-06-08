@@ -28,5 +28,5 @@ results = []
 for ar in articles:
     results.append(ar['title'])
 
-for i in range (len(results)):
+for i in range(0, 5):
     print(i + 1, results[i])

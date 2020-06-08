@@ -54,6 +54,16 @@ def main():
 
             time_draw.text((0, 10), source_string, font = font12, fill = 0)
             time_draw.text((0, 25), source_string_2, font = font12, fill = 0)
+
+            #Begin displaying the top 5 headlines from each language
+            
+            articles_de = top_headlines['articles']
+            results_de = []
+            for ar in articles_de:
+                results_de.append(ar['title'])
+            for i_d in range(0, 5):
+                time_draw.text((0, ((i+1) * 25)), results_de[i], font = font12, fill = 0)
+
             while(True):
                 time_draw.rectangle((180, 0, 250, 30), fill=255)
                 time_draw.text((180, 0), time.strftime('%H:%M'), font = font20, fill = 0)
