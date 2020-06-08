@@ -64,14 +64,14 @@ def main():
             for ar in articles_de:
                 results_de.append(ar['title'])
             for i_d in range(0, 3):
-                time_draw.text((0, (35 + (i_d*15))), (str(i_d + 1) + results_de[i_d]), font = font12, fill = 0)
+                time_draw.text((0, (35 + (i_d*15))), (str(i_d + 1) + "." + results_de[i_d]), font = font12, fill = 0)
 
             articles = top_headlines_2['articles']
             results = []
             for art in articles:
                 results.append(art['title'])
             for i in range(0, 3):
-                time_draw.text((0, (80 + (i * 15))), str(i + 3 + ".") + results[i], font = font12, fill = 0)
+                time_draw.text((0, (80 + (i * 15))), str(i + 3) + "." + results[i], font = font12, fill = 0)
 
             while(True):
                 time_draw.rectangle((180, 0, 250, 30), fill=255)
