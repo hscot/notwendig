@@ -20,6 +20,8 @@ top_headlines_2 = api.get_top_headlines(sources='bbc-news', language='en')
 if sys.version_info[0] < 3:
     raise Exception("Must be using Python 3.0 or greater!")
 
+
+
 #Main function
 
 def main():
@@ -32,6 +34,7 @@ def main():
     source_string = "Sources: " + source_name
     source_string_2 = "Sources: " + source_name_2
     epd = epd2in13_V2.EPD()
+    count = 0
     while True:
         try:
             print("Clear...")
@@ -82,6 +85,11 @@ def main():
             epdconfig.module_exit()
             exit()
         time.sleep(60)
+    count + 1
+    print(count)
+    if count = 600:
+        break
+
 
 def ctrl_c_handler(signal, frame):
     print('Control-C Pressed - Exiting!')
