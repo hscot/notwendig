@@ -13,7 +13,7 @@ from datetime import date
 
 api = NewsApiClient(api_key='0233006c7dc448ffaffea5cdfd337976')
 
-top_headlines = api.get_top_headlines(sources='die-zeit', language='de')
+top_headlines = api.get_top_headlines(sources='die-zeit,bbc-news', language='de,en')
 
 #Checks if python 3+ is being used, otherwise an exception is thrown
 if sys.version_info[0] < 3:
