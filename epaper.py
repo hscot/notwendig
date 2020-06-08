@@ -28,6 +28,7 @@ def main():
     yy = json.dumps(top_headlines_2)
     xx = json.loads(yy)
     source_name = x['articles'][0]['source']['name']
+    source_name_2 = xx['articles'][0]['source']['name']
     source_string = "Sources: " + source_name
     source_string_2 = "Sources: " + source_name_2
     epd = epd2in13_V2.EPD()
