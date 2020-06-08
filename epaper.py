@@ -41,7 +41,7 @@ def main():
 
             ######Test for updating time, but static headlines
 
-            time_image = Image.new('1', (epd.height, epd.width), 255)
+            time_image = Image.new('1', (70, 30), 255)
             time_draw = ImageDraw.Draw(time_image)
 
             #epd.init(epd.FULL_UPDATE)
