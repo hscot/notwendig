@@ -34,7 +34,6 @@ def main():
     source_string = "Sources: " + source_name
     source_string_2 = "Sources: " + source_name_2
     epd = epd2in13_V2.EPD()
-    count = 0
     while True:
         try:
             print("Clear...")
@@ -85,9 +84,6 @@ def main():
             epdconfig.module_exit()
             exit()
         time.sleep(60)
-    count + 1
-    if count == 600:
-        break
 
 
 
