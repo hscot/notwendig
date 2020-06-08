@@ -71,7 +71,7 @@ def main():
             for art in articles:
                 results.append(art['title'])
             for i in range(0, 3):
-                time_draw.text((0, (80 + (i * 15))), str(i + 3) + results[i], font = font12, fill = 0)
+                time_draw.text((0, (80 + (i * 15))), str(i + 3 + ".") + results[i], font = font12, fill = 0)
 
             while(True):
                 time_draw.rectangle((180, 0, 250, 30), fill=255)
