@@ -33,21 +33,17 @@ def main():
             print("Drawing...")
             drawblack = ImageDraw.Draw(HBlackimage)
             font20 = ImageFont.truetype('fonts/arial.ttf', 20)
-            drawblack.text((10, 0), time.strftime( '%H:%M', time.localtime()), font = font20, fill = 0)
-            drawblack.text((10, 20), "This is a test", font = font20, fill = 0)
-            epd.display(epd.getbuffer(HBlackimage))
-            time.sleep(2)
-            epd.sleep()
-
+            font12 = ImageFont.truetype('fonts/arial.ttf', 12)
+            
             ######Test for updating time, but static headlines
-
-            time_image = Image.new('1', (70, 30), 255)
+            time_image = Image.new('1', (epd.height, epd.width), 255)
             time_draw = ImageDraw.Draw(time_image)
 
-            #epd.init(epd.FULL_UPDATE)
+            epd.init(epd.FULL_UPDATE)
             epd.displayPartBaseImage(epd.getbuffer(time_image))
             epd.init(epd.PART_UPDATE)
 
+            time_draw.text((0, 10), "Source: " + api.get_sources, font = fon12, fill = 0)
             while(True):
                 time_draw.rectangle((180, 0, 250, 30), fill=255)
                 time_draw.text((180, 0), time.strftime('%H:%M'), font = font20, fill = 0)
