@@ -86,9 +86,9 @@ def main():
             exit()
         time.sleep(60)
     count + 1
-    print(count)
-    if count = 600:
+    if count == 600:
         break
+
 
 
 def ctrl_c_handler(signal, frame):
